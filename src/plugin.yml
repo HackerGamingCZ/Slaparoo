@@ -1,0 +1,17 @@
+name: Slaparoo
+version: 2.0
+author: HackerGamingCZ
+main: cz.hackergamingcz.slaparoo.Main
+commands:
+  forcestart:
+    description: Forces the game to start
+    usage: /forcestart
+  stopgame:
+    description: Ends the game
+    usage: /stopgame
+  stopstart:
+    description: Ends the starting of the game
+    usage: /stopstart
+  setscore:
+    description: Sets score of executor
+    usage: /setscore
