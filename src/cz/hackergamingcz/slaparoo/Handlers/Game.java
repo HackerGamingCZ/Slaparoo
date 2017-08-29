@@ -33,22 +33,22 @@ public class Game {
         int spawnid = randomnumber.nextInt(4);
         switch (spawnid){
             case 0:
-                respawnLocation = new Location(world, 178, 83, 318);
+                respawnLocation = new Location(world, 178, 83, 318, 175F, 0.0F);
                 break;
             case 1:
-                respawnLocation = new Location(world, 173, 82, 302);
+                respawnLocation = new Location(world, 173, 82, 302, 175F, 0.0F);
                 break;
             case 2:
-                respawnLocation = new Location(world, 152, 83, 309);
+                respawnLocation = new Location(world, 152, 83, 309, 175F, 0.0F);
                 break;
             case 3:
-                respawnLocation = new Location(world, 148, 82, 299);
+                respawnLocation = new Location(world, 148, 82, 299, 175F, 0.0F);
                 break;
             case 4:
-                respawnLocation = new Location(world, 159, 82, 300);
+                respawnLocation = new Location(world, 159, 82, 300, 175F, 0.0F);
                 break;
             default:
-                respawnLocation = new Location(world, 159, 82, 300);
+                respawnLocation = new Location(world, 159, 82, 300, 175F, 0.0F);
                 break;
         }
         return respawnLocation;

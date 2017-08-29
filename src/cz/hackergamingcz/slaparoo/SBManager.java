@@ -229,27 +229,26 @@ public class SBManager {
          Gratulujeme!           1 //ukáže se jen pokud je hráč zároveň výhercem
                                 0
          */
-        obj.getScore("§a").setScore(11);
+        obj.getScore("§a").setScore(8);
         Team i = board.registerNewTeam(playerdisplayname+"i");
         i.addPlayer(Bukkit.getServer().getOfflinePlayer(ChatColor.DARK_AQUA+""));
         i.setPrefix("§7Reset za: ");
         i.setSuffix("§a"+Mechanics.secondsToTime(ResetCountdown.getNumber()));
-        obj.getScore(ChatColor.DARK_AQUA+"").setScore(10);
-        obj.getScore("§5§l").setScore(9);
+        obj.getScore(ChatColor.DARK_AQUA+"").setScore(7);
+        obj.getScore("§5§l").setScore(6);
         Team j = board.registerNewTeam(playerdisplayname+"j");
         j.addPlayer(Bukkit.getServer().getOfflinePlayer(ChatColor.BLUE+""));
         j.setPrefix("§7Zabití: ");
         j.setSuffix("§a"+KillCounter.score.get(player));
-        obj.getScore(ChatColor.BLUE+"").setScore(8);
-        obj.getScore("§a§l").setScore(7);
-        obj.getScore("§e§l").setScore(4);
+        obj.getScore(ChatColor.BLUE+"").setScore(5);
+        obj.getScore("§a§l").setScore(4);
         obj.getScore("§7Výherce: ").setScore(3);
         Team l = board.registerNewTeam(playerdisplayname+"l");
         l.addPlayer(Bukkit.getServer().getOfflinePlayer(ChatColor.YELLOW+""+ChatColor.GREEN+""));
         l.setPrefix("§4");
         l.setSuffix(Game.getWinner().getName());
         obj.getScore(ChatColor.YELLOW+""+ChatColor.GREEN+"").setScore(2);
-        if(Game.getWinner().getName() == player.getName()){
+        if(Game.getWinner().getName().equals(player.getName())){
             obj.getScore("§aGratulujeme!").setScore(1);
         }
         obj.getScore("§a§e").setScore(0);
