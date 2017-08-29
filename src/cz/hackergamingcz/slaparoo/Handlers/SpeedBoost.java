@@ -1,6 +1,5 @@
 package cz.hackergamingcz.slaparoo.Handlers;
 
-import cz.hackergamingcz.slaparoo.Mechanics;
 import cz.hackergamingcz.slaparoo.Threads.SpeedBoostSpawner;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
