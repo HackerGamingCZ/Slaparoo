@@ -48,7 +48,7 @@ public class PlayerJoin implements Listener {
                 if(!LobbyCountdown.isCountdownRunning()){
                     LobbyCountdown.start();
                 }
-                if(Bukkit.getOnlinePlayers().size() >= 2 && LobbyCountdown.getNumber() > 10){
+                if(Bukkit.getOnlinePlayers().size() >= 5 && LobbyCountdown.getNumber() > 10){
                     LobbyCountdown.setNumber(10);
                 }
             }

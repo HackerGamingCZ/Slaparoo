@@ -107,6 +107,12 @@ public class Game {
         Bukkit.broadcastMessage(winnertext);
         Bukkit.broadcastMessage("");
         Bukkit.broadcastMessage(messageborder);
+        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage("§e§lVýsledky hráčů");
+        for(Player p : KillCounter.score.keySet()){
+            Bukkit.broadcastMessage("§6§l"+p.getName()+" §e§l - §6§l"+KillCounter.score.get(p)+" §e§lzabití!");
+        }
+
     }
     public static Player getWinner(){
         int winnerscore = 0;
