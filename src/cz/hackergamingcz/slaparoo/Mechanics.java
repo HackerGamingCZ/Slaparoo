@@ -17,7 +17,7 @@ public class Mechanics {
     ItemMeta meta = cookie.getItemMeta();
     meta.setDisplayName("§aRukes");
     cookie.setItemMeta(meta);
-    cookie.addUnsafeEnchantment(Enchantment.KNOCKBACK, 5);
+    cookie.addUnsafeEnchantment(Enchantment.KNOCKBACK, 6);
     player.getInventory().setItem(4, cookie);
     player.getInventory().setHeldItemSlot(4);
     }
