@@ -22,7 +22,7 @@ import java.util.Random;
 public class Game {
 
     private static World world = Bukkit.getWorld("world");
-    public static Location winnerlocation = new Location(Bukkit.getWorld("world"), 79.5,64,319.5);
+    public static Location winnerlocation = new Location(Bukkit.getWorld("world"), 79.5,64,319.5, 180.0F, 0.0F);
     public static Location endlobby = new Location(Bukkit.getWorld("world"), 79.5,64,315.5);
     public static HashMap<Player, Player> spectators = new HashMap<>();
 
@@ -33,22 +33,22 @@ public class Game {
         int spawnid = randomnumber.nextInt(4);
         switch (spawnid){
             case 0:
-                respawnLocation = new Location(world, 178, 83, 318, 175F, 0.0F);
+                respawnLocation = new Location(world, 170, 82, 300);
                 break;
             case 1:
-                respawnLocation = new Location(world, 173, 82, 302, 175F, 0.0F);
+                respawnLocation = new Location(world, 173, 82, 302);
                 break;
             case 2:
-                respawnLocation = new Location(world, 152, 83, 309, 175F, 0.0F);
+                respawnLocation = new Location(world, 152, 83, 309);
                 break;
             case 3:
-                respawnLocation = new Location(world, 148, 82, 299, 175F, 0.0F);
+                respawnLocation = new Location(world, 148, 82, 299);
                 break;
             case 4:
-                respawnLocation = new Location(world, 159, 82, 300, 175F, 0.0F);
+                respawnLocation = new Location(world, 159, 82, 300);
                 break;
             default:
-                respawnLocation = new Location(world, 159, 82, 300, 175F, 0.0F);
+                respawnLocation = new Location(world, 159, 82, 300);
                 break;
         }
         return respawnLocation;
