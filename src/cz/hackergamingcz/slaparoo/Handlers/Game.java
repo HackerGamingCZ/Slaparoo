@@ -1,6 +1,7 @@
 package cz.hackergamingcz.slaparoo.Handlers;
 
 import cz.hackergamingcz.slaparoo.Listeners.KillCounter;
+import cz.hackergamingcz.slaparoo.Main;
 import cz.hackergamingcz.slaparoo.Mechanics;
 import cz.hackergamingcz.slaparoo.SBManager;
 import cz.hackergamingcz.slaparoo.Threads.IngameCountdown;
@@ -8,9 +9,9 @@ import cz.hackergamingcz.slaparoo.Threads.LobbyCountdown;
 import cz.hackergamingcz.slaparoo.Threads.SpeedBoostSpawner;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -92,6 +93,22 @@ public class Game {
         }
 
         winner.teleport(winnerlocation);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable() {
+            @Override
+            public void run() {
+                Firework f = (Firework) winner.getWorld().spawn(winner.getLocation().add(0,2.5,0), Firework.class);
+
+                FireworkMeta fm = f.getFireworkMeta();
+                fm.addEffect(FireworkEffect.builder()
+                        .flicker(false)
+                        .trail(true)
+                        .with(FireworkEffect.Type.STAR)
+                        .withColor(Color.YELLOW)
+                        .build());
+                fm.setPower(1);
+                f.setFireworkMeta(fm);
+            }
+        }, 0L, 30L);
         String messageborder = "";
         int winnerscore = KillCounter.score.get(winner);
         for(int i = 0; i <= 21; i++){
