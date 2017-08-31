@@ -32,8 +32,11 @@ public class PlayerQuit implements Listener {
                 Bukkit.broadcastMessage("§aSlaparoo > §cNedostatek hráčů pro start hry! Zastavuji odpočet..");
             }
         } else{
-            if(Bukkit.getOnlinePlayers().size()-1-Game.spectators.size() < 2 && GameState.isState(GameState.INGAME)){
-                Game.end();
+            if(!Game.spectators.containsKey(player)){
+                if(Bukkit.getOnlinePlayers().size()-1 < 2 && GameState.isState(GameState.INGAME)){
+                    Bukkit.broadcastMessage(Bukkit.getOnlinePlayers().size()-1-Game.spectators.size()+"");
+                    Game.end();
+                }
             }
         }
     }

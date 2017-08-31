@@ -110,7 +110,9 @@ public class Game {
         Bukkit.broadcastMessage("");
         Bukkit.broadcastMessage("§e§lVýsledky hráčů");
         for(Player p : KillCounter.score.keySet()){
-            Bukkit.broadcastMessage("§6§l"+p.getName()+" §e§l - §6§l"+KillCounter.score.get(p)+" §e§lzabití!");
+            if(p != winner){
+                Bukkit.broadcastMessage("§6§l"+p.getName()+" §e§l - §6§l"+KillCounter.score.get(p)+" §e§lzabití!");
+            }
         }
 
     }
