@@ -97,7 +97,8 @@ public class Game {
             @Override
             public void run() {
                 Firework f = (Firework) winner.getWorld().spawn(winner.getLocation().add(0,2.5,0), Firework.class);
-
+                Random random = new Random();
+                int RandomPower = random.nextInt(2);
                 FireworkMeta fm = f.getFireworkMeta();
                 fm.addEffect(FireworkEffect.builder()
                         .flicker(false)
@@ -105,7 +106,7 @@ public class Game {
                         .with(FireworkEffect.Type.STAR)
                         .withColor(Color.YELLOW)
                         .build());
-                fm.setPower(1);
+                fm.setPower(RandomPower);
                 f.setFireworkMeta(fm);
             }
         }, 0L, 30L);
