@@ -3,6 +3,7 @@ package cz.hackergamingcz.slaparoo.Commands;
 import cz.hackergamingcz.slaparoo.Handlers.Game;
 import cz.hackergamingcz.slaparoo.Handlers.GameState;
 import cz.hackergamingcz.slaparoo.Listeners.KillCounter;
+import cz.hackergamingcz.slaparoo.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

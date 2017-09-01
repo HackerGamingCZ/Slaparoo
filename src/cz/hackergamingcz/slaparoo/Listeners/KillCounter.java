@@ -43,6 +43,7 @@ public class KillCounter implements Listener {
             if(hitLog.containsKey(player)){
                 int killerscore = score.get(hitLog.get(player))+1;
                 Player killer = hitLog.get(player);
+                killer.setPlayerListName(killer.getName() + "§e - "+killerscore);
                 score.put(hitLog.get(player), killerscore);
                 scoreconversely.put(killerscore, hitLog.get(player));
                 Bukkit.broadcastMessage("§aSlaparoo > §eHráč §6"+killer.getName()+" §eshodil hráče §6"+e.getPlayer().getName()+"§e!");

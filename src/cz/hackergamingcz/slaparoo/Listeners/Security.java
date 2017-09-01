@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -45,6 +46,10 @@ public class Security implements Listener{
     }
     @EventHandler
     public void onItemSwitchHand(PlayerSwapHandItemsEvent e){
+        e.setCancelled(true);
+    }
+    @EventHandler
+    public void onSwitchHeldItem(PlayerItemHeldEvent e){
         e.setCancelled(true);
     }
 }

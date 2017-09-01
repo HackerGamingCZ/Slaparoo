@@ -12,10 +12,6 @@ public enum GameState {
         this.canJoin = canJoin;
     }
 
-    public static boolean canJoin(){
-        return canJoin();
-    }
-
     public static GameState getState(){
         return currentState;
     }

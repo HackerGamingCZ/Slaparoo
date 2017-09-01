@@ -34,7 +34,11 @@ public class SBManager {
                     break;
             }
         } else{
-            updateSpectSb();
+            if(GameState.isState(GameState.INGAME)){
+                updateSpectSb();
+            } else{
+                updateResetSb();
+            }
         }
     }
 
@@ -53,7 +57,11 @@ public class SBManager {
                     break;
             }
         } else{
-            updateSpectSb();
+            if(GameState.isState(GameState.INGAME)){
+                updateSpectSb();
+            } else{
+                updateResetSb();
+            }
         }
 
     }
@@ -82,7 +90,11 @@ public class SBManager {
                 createResetSb();
             }
         } else{
-            createSpectBoard();
+            if(GameState.isState(GameState.INGAME)){
+                createSpectBoard();
+            } else{
+                createResetSb();;;;;;;;;;;;
+            }
         }
     }
     public void createIngameSb(){
