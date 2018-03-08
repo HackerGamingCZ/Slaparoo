@@ -16,7 +16,7 @@ public class Mechanics {
     public static void giveCookie(Player player){
     ItemStack cookie = new ItemStack(Material.COOKIE, 1);
     ItemMeta meta = cookie.getItemMeta();
-    meta.setDisplayName("§aRukes");
+    meta.setDisplayName("§6Sušenka");
     cookie.setItemMeta(meta);
     cookie.addUnsafeEnchantment(Enchantment.KNOCKBACK, 6);
     player.getInventory().setItem(4, cookie);
@@ -49,7 +49,7 @@ public class Mechanics {
         return StringUtils.repeat(" ", spaces)+text;
     }
     public static void clearChat(){
-        for(int i = 0; i <= 20; i++){
+        for(int i = 0; i <= 120; i++){
             Bukkit.broadcastMessage("");
         }
     }

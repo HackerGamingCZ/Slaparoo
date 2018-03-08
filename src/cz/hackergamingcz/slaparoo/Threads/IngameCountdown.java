@@ -27,7 +27,7 @@ public class IngameCountdown {
             }
             if(number == 0){
                 stop();
-                Game.end();
+                Main.getGame().end();
             }
         }, 0, 20);
     }

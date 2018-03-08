@@ -2,6 +2,7 @@ package cz.hackergamingcz.slaparoo.Listeners;
 
 import cz.hackergamingcz.slaparoo.Handlers.Game;
 import cz.hackergamingcz.slaparoo.Handlers.GameState;
+import cz.hackergamingcz.slaparoo.Main;
 import cz.hackergamingcz.slaparoo.SBManager;
 import cz.hackergamingcz.slaparoo.Threads.LobbyCountdown;
 import org.bukkit.Bukkit;
@@ -35,7 +36,7 @@ public class PlayerQuit implements Listener {
             if(!Game.spectators.containsKey(player)){
                 if(Bukkit.getOnlinePlayers().size()-1 < 2 && GameState.isState(GameState.INGAME)){
                     Bukkit.broadcastMessage(Bukkit.getOnlinePlayers().size()-1-Game.spectators.size()+"");
-                    Game.end();
+                    Main.getGame().end();
                 }
             }
         }

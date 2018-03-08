@@ -2,6 +2,7 @@ package cz.hackergamingcz.slaparoo.Commands;
 
 import cz.hackergamingcz.slaparoo.Handlers.Game;
 import cz.hackergamingcz.slaparoo.Handlers.GameState;
+import cz.hackergamingcz.slaparoo.Main;
 import cz.hackergamingcz.slaparoo.Threads.LobbyCountdown;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -15,7 +16,7 @@ public class StopGame implements CommandExecutor {
         if(sender instanceof Player && GameState.isState(GameState.INGAME)){
             if(sender.isOp()){
                 Bukkit.broadcastMessage("§aSlaparoo > §6"+sender.getName()+"§e vynutil ukončení hry.");
-                Game.end();
+                Main.getGame().end();
             } else{
                 sender.sendMessage("§aSlaparoo > §cNemáš práva na ukončený start hry!");
             }

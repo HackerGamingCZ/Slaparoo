@@ -93,7 +93,7 @@ public class SBManager {
             if(GameState.isState(GameState.INGAME)){
                 createSpectBoard();
             } else{
-                createResetSb();;;;;;;;;;;;
+                createResetSb();
             }
         }
     }
@@ -258,9 +258,9 @@ public class SBManager {
         Team l = board.registerNewTeam(playerdisplayname+"l");
         l.addPlayer(Bukkit.getServer().getOfflinePlayer(ChatColor.YELLOW+""+ChatColor.GREEN+""));
         l.setPrefix("§4");
-        l.setSuffix(Game.getWinner().getName());
+        l.setSuffix(Main.getGame().getWinner().getName());
         obj.getScore(ChatColor.YELLOW+""+ChatColor.GREEN+"").setScore(2);
-        if(Game.getWinner().getName().equals(player.getName())){
+        if(Main.getGame().getWinner().getName().equals(player.getName())){
             obj.getScore("§aGratulujeme!").setScore(1);
         }
         obj.getScore("§a§e").setScore(0);
@@ -275,7 +275,7 @@ public class SBManager {
         {
             board.getTeam(playerdisplayname+"i").setSuffix("§a"+ Mechanics.secondsToTime(ResetCountdown.getNumber()));
             board.getTeam(playerdisplayname+"j").setSuffix("§a"+ KillCounter.score.get(player));
-            board.getTeam(playerdisplayname+"l").setSuffix(Game.getWinner().getName());
+            board.getTeam(playerdisplayname+"l").setSuffix(Main.getGame().getWinner().getName());
         }
         catch(NullPointerException e)
         {

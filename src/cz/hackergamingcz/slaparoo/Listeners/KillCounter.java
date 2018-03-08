@@ -2,6 +2,7 @@ package cz.hackergamingcz.slaparoo.Listeners;
 
 import cz.hackergamingcz.slaparoo.Handlers.Game;
 import cz.hackergamingcz.slaparoo.Handlers.GameState;
+import cz.hackergamingcz.slaparoo.Main;
 import cz.hackergamingcz.slaparoo.Mechanics;
 import org.bukkit.Bukkit;
 import org.bukkit.WeatherType;
@@ -36,9 +37,9 @@ public class KillCounter implements Listener {
         player.setFallDistance(0);
         if(player.getLocation().getY() <= 50){
             if(GameState.isState(GameState.RESET)){
-                player.teleport(Game.endlobby);
+                player.teleport(Main.getGame().endlobby);
             } else{
-                player.teleport(Game.randomRespawn());
+                player.teleport(Main.getGame().randomRespawn());
             }
             if(hitLog.containsKey(player)){
                 int killerscore = score.get(hitLog.get(player))+1;
@@ -50,7 +51,7 @@ public class KillCounter implements Listener {
                 Mechanics.playAnvillandSound(killer);
                 hitLog.remove(player);
                 if(killerscore >= 25){
-                    Game.end();
+                    Main.getGame().end();
                     return;
                 }
             } else{

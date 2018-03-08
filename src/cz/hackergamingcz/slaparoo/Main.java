@@ -4,6 +4,7 @@ import cz.hackergamingcz.slaparoo.Commands.ForceStart;
 import cz.hackergamingcz.slaparoo.Commands.SetScore;
 import cz.hackergamingcz.slaparoo.Commands.StopGame;
 import cz.hackergamingcz.slaparoo.Commands.StopStart;
+import cz.hackergamingcz.slaparoo.Handlers.Game;
 import cz.hackergamingcz.slaparoo.Handlers.GameState;
 import cz.hackergamingcz.slaparoo.Handlers.SpeedBoost;
 import cz.hackergamingcz.slaparoo.Listeners.KillCounter;
@@ -20,10 +21,15 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
+import java.util.Random;
 
 public class Main extends JavaPlugin {
 
     public static Main plugin;
+    private static String prefix = "§8[§eSlaparoo§8]";
+    private static World arena;
+    private static Random random;
+    private static Game game;
 
     @Override
     public void onEnable(){
@@ -31,16 +37,29 @@ public class Main extends JavaPlugin {
         plugin = this;
         registerEvents();
         registerCommands();
-        System.out.println("[Slaparoo] plugin úspěšně zapnut.");
+        log("Plugin successfully started!");
         clearGround();
-        Bukkit.getWorld("world").setDifficulty(Difficulty.PEACEFUL);
+        arena = Bukkit.getWorld(getConfig().getConfigurationSection("general").getString("arena"));
+        if(arena == null){
+            GameState.setState(GameState.SETUP);
+            log("Game is not ");
+            return;
         }
-    @Override
-    public void onDisable(){
-        System.out.println("[Slaparoo] plugin úspěšně vypnut.");
+        arena.setDifficulty(Difficulty.PEACEFUL);
+        random = new Random();
+        game = new Game();
     }
 
-    void registerEvents(){
+    public void log(String message){
+        Bukkit.getLogger().info("[Slaparoo] "+message);
+    }
+
+    @Override
+    public void onDisable(){
+        log("Plugin successfully stopped!");
+    }
+
+    private void registerEvents(){
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new PlayerJoin(), this);
         pm.registerEvents(new PlayerQuit(), this);
@@ -48,22 +67,39 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new KillCounter(), this);
         pm.registerEvents(new SpeedBoost(), this);
     }
-    void registerCommands(){
+    private  void registerCommands(){
         this.getCommand("forcestart").setExecutor(new ForceStart());
         this.getCommand("stopgame").setExecutor(new StopGame());
         this.getCommand("stopstart").setExecutor(new StopStart());
+
+        //Just for testing
         this.getCommand("setscore").setExecutor(new SetScore());
     }
 
-    void clearGround(){
-        World world = getServer().getWorld("world");
-        List<Entity> entList = world.getEntities();
+    private void clearGround(){
+        World world = arena;
+        List<Entity> entities = world.getEntities();
 
-        for (Entity current : entList) {
-            if (current instanceof Item || current instanceof ArmorStand) {
-                current.remove();
+        for (Entity entity : entities) {
+            if (entity instanceof Item || entity instanceof ArmorStand) {
+                entity.remove();
             }
         }
     }
 
+    public static String getPrefix() {
+        return prefix;
+    }
+
+    public static World getArena() {
+        return arena;
+    }
+
+    public static Random getRandom() {
+        return random;
+    }
+
+    public static Game getGame() {
+        return game;
+    }
 }

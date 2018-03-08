@@ -2,7 +2,7 @@ package cz.hackergamingcz.slaparoo.Handlers;
 
 public enum GameState {
 
-    WAITING(true), INGAME(true), RESET(true);
+    SETUP(false), WAITING(true), INGAME(true), RESET(true);
 
     private static GameState currentState;
 

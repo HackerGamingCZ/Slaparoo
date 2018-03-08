@@ -44,7 +44,7 @@ public class LobbyCountdown {
             }
             if(number < 1){
                 stop();
-                Game.start();
+                Main.getGame().start();
             }
         }, 0, 20);
     }
